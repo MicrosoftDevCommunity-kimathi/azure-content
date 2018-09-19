@@ -16,7 +16,7 @@
     ms.date="05/10/2016"
     ms.author="donnam"/>
 
-#Connect to Azure Storage in your Xamarin.Forms app
+# Connect to Azure Storage in your Xamarin.Forms app
 
 ## Overview
 
