@@ -50,7 +50,7 @@ You need to add a new controller to your server project that will respond to req
 - [Routes registered by the storage controller](#routes-registered)
 - [Client and server communication](#client-communication)
 
-###<a name="add-controller-code"></a>Add a storage controller to your server project
+### <a name="add-controller-code"></a>Add a storage controller to your server project
 
 1. In Visual Studio, open your .NET server project. Add the NuGet package [Microsoft.Azure.Mobile.Server.Files]. Be sure to select **Include prerelease**.
 
@@ -119,7 +119,7 @@ The new `TodoItemStorageController` exposes two sub-resources under the record i
     
         `/tables/TodoItem/{id}/MobileServiceFiles/{fileid}`
 
-###<a name="client-communication"></a>Client and server communication
+### <a name="client-communication"></a>Client and server communication
 
 Note that `TodoItemStorageController` does *not* have a route for uploading or downloading a blob. That is because a mobile client interacts with blob storage *directly* in order to perform these operations, after first getting a SAS token (Shared Access Signature) to securely access a particular blob or container. This is an important architectural design, as otherwise access to storage would be limited by the scalability and availability of the mobile backend. Instead, by connecting directly to Azure Storage, the mobile client can take advantage of its features such as auto-partitioning and geo-distribution.
 
@@ -181,7 +181,7 @@ Create a new interface `IPlatform` in the main portable library project. This fo
             Task DownloadFileAsync<T>(IMobileServiceSyncTable<T> table, MobileServiceFile file, string filename);
         }
 
-###<a name="add-filehelper"></a>Add FileHelper class
+### <a name="add-filehelper"></a>Add FileHelper class
 
 1. Create a new class `FileHelper` in the main portable library project. Add the following using statements:
 
@@ -239,7 +239,7 @@ Create a new interface `IPlatform` in the main portable library project. This fo
             }
         }
 
-###<a name="file-sync-handler"></a> Add a file sync handler
+### <a name="file-sync-handler"></a> Add a file sync handler
 
 Create a new class `TodoItemFileSyncHandler` in the main portable library project. This class contains callbacks from the Azure SDK to notify your code when a file is added or removed.
 
@@ -333,7 +333,7 @@ The Azure Mobile Client SDK does not store actually store any file data: the cli
             return await this.todoTable.GetFilesAsync(todoItem);
         }
 
-###<a name="add-details-view"></a>Add a details view
+### <a name="add-details-view"></a>Add a details view
 
 In this section, you will add a new details view for a todo item. The view is created when the user selects a todo item and it allows new images to be added to an item.
 
@@ -466,7 +466,7 @@ In this section, you will add a new details view for a todo item. The view is cr
             }
         }
 
-###<a name="update-main-view"></a>Update the main view 
+### <a name="update-main-view"></a>Update the main view 
 
 Update the main view to open the details view when a todo item is selected.
 
@@ -557,7 +557,7 @@ This code uses the Xamarin.Forms [DependencyService](https://developer.xamarin.c
 
         App.UIContext = this;
 
-###<a name="update-ios"></a>Update the iOS project
+### <a name="update-ios"></a>Update the iOS project
 
 Add platform-specific code to the iOS project.
 
@@ -620,7 +620,7 @@ Add platform-specific code to the iOS project.
 
 3. Edit **AppDelegate.cs** and uncomment the call to `SQLitePCL.CurrentPlatform.Init()`.
 
-###<a name="update-windows"></a>Update the Windows project
+### <a name="update-windows"></a>Update the Windows project
 
 1. Install the Visual Studio extension [SQLite for Windows 8.1](http://go.microsoft.com/fwlink/?LinkID=716919). 
 For more information, see the tutorial [Enable offline sync for your Windows app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). 
